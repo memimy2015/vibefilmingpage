@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: api-server
+    env: python
+    region: singapore  # 新加坡，国内延迟最低
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    rootDir: backend
