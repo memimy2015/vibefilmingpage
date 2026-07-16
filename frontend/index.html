@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Filming</title>
-</head>
+<html>
 <body>
-    <h1>hello, vibe filming</h1>
+  <button id="getBtn">GET请求服务端</button>
+  <button id="postBtn">POST提交数据</button>
+  <div id="res"></div>
+
+  <script>
+    // 后端API地址，部署后替换成你的Render地址
+    const API_BASE = import.meta.env.VITE_API_URL || "https://xxx.onrender.com";
+    const resDom = document.getElementById("res");
+
+    // GET请求
+    document.getElementById("getBtn").onclick = async () => {
+      const resp = await fetch(`${API_BASE}/api/hello`);
+      const data = await resp.json();
+      resDom.innerText = JSON.stringify(data, null, 2);
+    }
+
+    // POST请求
+    document.getElementById("postBtn").onclick = async () => {
+      const resp = await fetch(`${API_BASE}/api/submit`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({name: "测试用户", num: 123})
+      });
+      const data = await resp.json();
+      resDom.innerText = JSON.stringify(data, null, 2);
+    }
+  </script>
 </body>
 </html>
