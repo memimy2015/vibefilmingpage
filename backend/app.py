@@ -8,7 +8,7 @@ CORS(app)
 # 测试GET接口
 @app.route('/api/hello', methods=["GET"])
 def hello():
-    return jsonify({"msg": "后端接口正常", "data": "来自Render服务端"})
+    return jsonify({"msg": "后端接口正常", "data": "hello,VibeFilming!"})
 
 # 接收前端POST请求
 @app.route('/api/submit', methods=["POST"])
