@@ -22,7 +22,7 @@
       const resp = await fetch(`${API_BASE}/api/submit`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({name: "测试用户", num: 123})
+        body: JSON.stringify({name: "hello,Vibe Filming!", num: 123})
       });
       const data = await resp.json();
       resDom.innerText = JSON.stringify(data, null, 2);
